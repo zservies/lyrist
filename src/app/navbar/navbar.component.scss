@@ -1,0 +1,51 @@
+.welcome-logo {
+    position: relative;
+    text-align: center;
+    font-weight: 500;
+    font-family: 'Pacifico', cursive;
+    color: black;
+}
+
+.nav-bar {
+    position: absolute;
+    background-color: transparent;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+ 
+
+    h3 {
+        margin: 30px;
+        font-family: 'Baloo Bhai', cursive;
+        font-style: italic;
+    }
+
+    .search {
+        position: relative;
+        margin: 0 0 0 10%; // Will need to be adjusted. Buttons and search bar don't look symmetrical to logo.
+    }
+    .search-bar {
+        font-size: inherit;
+        color: rgb(44, 44, 44);
+        font-weight: 700;
+        width: 100%;
+        opacity: 0.7;
+        background: rgba(0, 0, 0, 0.06);
+        border-radius: 10px;
+        outline: none;
+        border-width: initial;
+        border-style: none;
+        border-color: initial;
+        border-image: initial;
+        padding: 10px 20px;
+
+    }
+    .search-glass {
+        position: absolute;
+        padding-left: 10px;
+        padding-top: 8px; //Will need to be more responsive than these values.
+        opacity: 0.5;
+
+
+    }
+}
