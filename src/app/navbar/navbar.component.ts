@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,14 @@ import { MatMenuTrigger } from '@angular/material/menu';
 export class NavbarComponent implements OnInit {
 
 
-  constructor() { }
+  navHome() {
+    this.router.navigateByUrl('');
+  }
+  
+  navCreate() {
+    this.router.navigateByUrl('create');
+  }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }

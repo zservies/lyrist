@@ -1,8 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CreateLyricsComponent } from './create-lyrics/create-lyrics.component';
+import { AppComponent } from './app.component';
+import { LandingComponent } from './landing/landing.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: '', component: LandingComponent},
+  {path: 'create', component: CreateLyricsComponent},
+  {path: '**', component: LandingComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

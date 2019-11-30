@@ -5,6 +5,10 @@
     font-family: 'Pacifico', cursive;
     color: black;
 }
+.welcome-logo:hover {
+    color: white;
+    cursor: pointer;
+}
 
 .nav-bar {
     position: absolute;
@@ -14,10 +18,15 @@
     justify-content: center;
  
 
-    h3 {
+    button {
         margin: 30px;
         font-family: 'Baloo Bhai', cursive;
         font-style: italic;
+        font-size: 20px;
+    }
+    button:hover {
+        color: white;
+        cursor: pointer;
     }
 
     .search {

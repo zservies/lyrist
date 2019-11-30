@@ -1,10 +1,11 @@
 <div class = "navbar">
-    <h1 class = "welcome-logo">Lyrist</h1>
+    <h1 class = "welcome-logo" (click)="navHome()">Lyrist</h1>
 
     <mat-toolbar class = "nav-bar">
-        <h3 class="nav-browse">BROWSE</h3>
-        <h3 class="nav-categories">CATEGORIES</h3>
-        <h3 class="nav-about">ABOUT</h3>
+        <button mat-button class="nav-create" (click) = "navCreate()">CREATE</button>
+        <button mat-button class="nav-create">BROWSE</button>
+        <button mat-button class="nav-create">CATEGORIES</button>
+        <button mat-button class="nav-create">ABOUT</button>
 
 
         <div class = "search">
