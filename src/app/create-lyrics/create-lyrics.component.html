@@ -1,14 +1,14 @@
 <app-navbar></app-navbar>
 
 <div class = "lyric-wrapper">
-    <input #lyricTitle class = "lyric-title" placeholder="Title">
-    <input #lyricAuthor class = "lyric-author lyric-title" placeholder="Author">
-    <textarea #lyricBody placeholder="Pour your heart out here." class = "lyric-box"></textarea>
+    <input [(ngModel)] = "title" class = "lyric-title" placeholder="Title">
+    <input [(ngModel)] = "author" class = "lyric-author lyric-title" placeholder="Author">
+    <textarea [(ngModel)] = "body" placeholder="Pour your heart out here." class = "lyric-box"></textarea>
 
     <div class = "button-wrapper">
-        <button class = "submit-button" mat-raised-button (click)="submitPost(lyricTitle.value, lyricAuthor.value, lyricBody.value)">CREATE</button>
+        <button class = "submit-button" mat-raised-button (click)="submitPost()">CREATE</button>
         <button class = "save-button" mat-raised-button>SAVE</button>
-        <button class = "clear-button" mat-raised-button (click)="clearInputs(lyricTitle.value, lyricAuthor.value, lyricBody.value)">CLEAR</button>
+        <button class = "clear-button" mat-raised-button (click)="clearInputs()">CLEAR</button>
     </div>
 
 </div>

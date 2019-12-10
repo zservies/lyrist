@@ -9,22 +9,25 @@ import { LyricPost } from '../lyric-post';
 export class CreateLyricsComponent implements OnInit {
 
   lyricPost: LyricPost;
+  title: string;
+  author: string;
+  body: string;
   lyricPosts = [];
 
-  submitPost(title, author, body) {
+  submitPost() {
     this.lyricPost = {
-      title: title,
-      author: author,
-      body: body
+      title: this.title,
+      author: this.author,
+      body: this.body
     };
     this.lyricPosts.push(this.lyricPost);
     console.log(this.lyricPost);
     console.log(this.lyricPosts);
   }
-  clearInputs(title, author, body) {
-    this.lyricPost.author = "";
-    this.lyricPost.title = "";
-    this.lyricPost.body = ""
+  clearInputs() {
+    this.title = '';
+    this.author = '';
+    this.body = '';
   }
   constructor() { }
 
