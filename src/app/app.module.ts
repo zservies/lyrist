@@ -12,7 +12,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import { CreateLyricsComponent } from './create-lyrics/create-lyrics.component';
-
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,7 +28,8 @@ import { CreateLyricsComponent } from './create-lyrics/create-lyrics.component';
     BrowserAnimationsModule,
     MatMenuModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
