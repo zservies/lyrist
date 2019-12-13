@@ -13,6 +13,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import { CreateLyricsComponent } from './create-lyrics/create-lyrics.component';
 import { FormsModule } from '@angular/forms';
+import { BrowseLyricsComponent } from './browse-lyrics/browse-lyrics.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     LandingComponent,
     NavbarComponent,
-    CreateLyricsComponent
+    CreateLyricsComponent,
+    BrowseLyricsComponent
   ],
   imports: [
     BrowserModule,
