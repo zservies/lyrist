@@ -14,6 +14,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { CreateLyricsComponent } from './create-lyrics/create-lyrics.component';
 import { FormsModule } from '@angular/forms';
 import { BrowseLyricsComponent } from './browse-lyrics/browse-lyrics.component';
+import { AboutComponent } from './about/about.component';
+import { CategoriesLyricsComponent } from './categories-lyrics/categories-lyrics.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { BrowseLyricsComponent } from './browse-lyrics/browse-lyrics.component';
     LandingComponent,
     NavbarComponent,
     CreateLyricsComponent,
-    BrowseLyricsComponent
+    BrowseLyricsComponent,
+    AboutComponent,
+    CategoriesLyricsComponent,
   ],
   imports: [
     BrowserModule,
