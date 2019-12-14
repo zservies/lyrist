@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LyricPost } from '../lyric-post';
+import { LyricsService } from '../services/lyrics.service';
 
 @Component({
   selector: 'app-create-lyrics',
@@ -12,7 +13,6 @@ export class CreateLyricsComponent implements OnInit {
   title: string;
   author: string;
   body: string;
-  lyricPosts = [];
 
   submitPost() {
     this.lyricPost = {
@@ -20,18 +20,17 @@ export class CreateLyricsComponent implements OnInit {
       author: this.author,
       body: this.body
     };
-    this.lyricPosts.push(this.lyricPost);
-    console.log(this.lyricPost);
-    console.log(this.lyricPosts);
+    this.lyricService.setLyrics(this.lyricPost);
   }
   clearInputs() {
     this.title = '';
     this.author = '';
     this.body = '';
   }
-  constructor() { }
+  constructor(private lyricService: LyricsService) { }
 
   ngOnInit() {
+
   }
 
 }

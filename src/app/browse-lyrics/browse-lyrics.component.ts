@@ -1,6 +1,5 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-import { CreateLyricsService } from '../create-lyrics/create-lyrics.service';
-import { LyricPost } from '../lyric-post';
+import { LyricsService } from '../services/lyrics.service';
 
 @Component({
   selector: 'app-browse-lyrics',
@@ -11,14 +10,12 @@ import { LyricPost } from '../lyric-post';
 @Injectable({providedIn: 'root'})
 export class BrowseLyricsComponent implements OnInit {
 
-  post;
   lyricPosts = [];
 
-  constructor(public lyricsService: CreateLyricsService) { }
+  constructor(public lyricsService: LyricsService) { }
 
   ngOnInit() {
-    this.post = this.lyricsService.getLyricPosts();
-    this.lyricPosts.push(this.post);
+    this.lyricPosts = [...this.lyricsService.getLyrics()];
   }
 
 }
