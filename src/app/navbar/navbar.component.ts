@@ -20,6 +20,12 @@ export class NavbarComponent implements OnInit {
   navBrowse() {
     this.router.navigateByUrl('browse');
   }
+  navAbout(){
+    this.router.navigateByUrl('about');
+  }
+  navCategories() {
+    this.router.navigateByUrl('categories');
+  }
   constructor(private router: Router) { }
 
   ngOnInit() {
