@@ -15,7 +15,12 @@ export class BrowseLyricsComponent implements OnInit {
   constructor(public lyricsService: LyricsService) { }
 
   ngOnInit() {
-    this.lyricPosts = [...this.lyricsService.getLyrics()];
+    // this.lyricPosts = [...this.lyricsService.getLyrics()];
+    this.lyricsService.getExample()
+      .subscribe(data => {
+        this.lyricPosts = data;
+      });
   }
+
 
 }

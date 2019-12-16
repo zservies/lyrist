@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -6,8 +8,9 @@ import { Injectable } from '@angular/core';
 export class LyricsService {
 
   lyricPosts = [];
+  exampleUrl = '/assets/data/example.json';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getLyrics() {
     return this.lyricPosts;
@@ -15,5 +18,9 @@ export class LyricsService {
 
   setLyrics(createLyric) {
     this.lyricPosts.push(createLyric);
+  }
+
+  getExample(): Observable<any> {
+    return this.http.get(this.exampleUrl);
   }
 }

@@ -1,0 +1,37 @@
+[
+    {
+        "title": "Lyric 1",
+        "author": "John Smith",
+        "body": "here are some lyrics for you to read."
+    },
+    {
+        "title": "Lyric 2",
+        "author": "Jim Smithson",
+        "body": "Some lyrics."
+    },
+    {
+        "title": "Lyric 3",
+        "author": "Joeseph Smith",
+        "body": "here are some lyrics "
+    },
+    {
+        "title": "Lyric 4",
+        "author": "John Joe",
+        "body": "lyrics for you to read."
+    },
+    {
+        "title": "Lyric 5",
+        "author": "Smith Wes",
+        "body": "for you to read."
+    },
+    {
+        "title": "Lyric 6",
+        "author": "Johnson Smith",
+        "body": "here are some lyrics for you to read again."
+    },
+    {
+        "title": "Lyric 7",
+        "author": "John Smith",
+        "body": "here are some lyrics for you to read for a third time."
+    }
+]
