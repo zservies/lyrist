@@ -5,10 +5,10 @@
     font-size: larger;
     font-family: 'Pacifico', cursive;
     color: white;
-    margin: 0;
+    margin: 0 1% 0 0;
 }
 .welcome-logo:hover {
-    color: white;
+    color: grey;
     cursor: pointer;
 }
 
@@ -20,44 +20,56 @@
     justify-content: center;
     color: white;
 
-
-    button {
-        margin: 30px;
+    .horizontal-line-logo {
+      color: white;
+      width: 1%
+    }
+    .horizontal-line {
+      color: white;
+      width: 75%;
+    }
+    .button-wrapper {
+      button {
+        // margin: 30px;
         font-family: 'Source Code Pro', monospace;
         color: white;
         font-size: 20px;
     }
-    button:hover {
-        color: white;
+      button:hover {
+        color: grey;
         cursor: pointer;
     }
+
+  }
+
 
     .search {
         position: relative;
         margin: 0 0 0 10%; // Will need to be adjusted. Buttons and search bar don't look symmetrical to logo.
     }
     .search-bar {
-        font-size: inherit;
-        color: rgb(44, 44, 44);
-        font-weight: 700;
-        width: 100%;
-        opacity: 0.7;
-        background: rgba(0, 0, 0, 0.06);
-        border-radius: 10px;
-        outline: none;
-        border-width: initial;
-        border-style: none;
-        border-color: initial;
-        border-image: initial;
-        padding: 10px 20px;
+      font-family: 'Source Code Pro', monospace;
+      font-size: inherit;
+      color: rgb(44, 44, 44);
+      font-weight: 700;
+      width: 100%;
+      opacity: 0.7;
+      background:white;
+      border-radius: 10px;
+      outline: none;
+      border-width: initial;
+      border-style: none;
+      border-color: initial;
+      border-image: initial;
+      padding: 10px 20px;
 
     }
     .search-glass {
-        position: absolute;
-        padding-left: 10px;
-        padding-top: 8px; //Will need to be more responsive than these values.
-        opacity: 0.5;
-
-
+      color: white;
+      position: absolute;
+      padding-left: 10px;
+      padding-top: 8px; //Will need to be more responsive than these values.
+      opacity: 0.5;
+      z-index: 9000;
     }
 }
