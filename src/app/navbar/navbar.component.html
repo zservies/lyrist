@@ -1,17 +1,20 @@
 <div class = "navbar">
-    <h1 class = "welcome-logo" (click)="navHome()">Lyrist</h1>
 
     <mat-toolbar class = "nav-bar">
-        <button mat-button class="nav-create" (click) = "navCreate()">CREATE</button>
-        <button mat-button class="nav-create" (click) = "navBrowse()">BROWSE</button>
-        <button mat-button class="nav-create" (click) = "navCategories()">CATEGORIES</button>
-        <button mat-button class="nav-create" (click) = "navAbout()">ABOUT</button>
-
+      <!-- <h1 class = "welcome-logo" (click)="navHome()">Lyrist</h1> -->
+      <mat-toolbar-row class = "nav-create">
+        <h1 class = "welcome-logo">Lyrist</h1>
+        <button mat-button (click) = "navCreate()">create</button>
+        <button mat-button (click) = "navBrowse()">browse</button>
+        <button mat-button (click) = "navCategories()">categories</button>
+        <button mat-button (click) = "navAbout()">about</button>
 
         <div class = "search">
             <img class = "search-glass" src="../../assets/images/search-24px.svg" alt="">
             <input class = "search-bar" type="text" placeholder="Search Lyrist" style="padding-left: 40px;">
         </div>
+      </mat-toolbar-row>
+
 
     </mat-toolbar>
 

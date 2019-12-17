@@ -1,9 +1,11 @@
 .welcome-logo {
     position: relative;
-    text-align: center;
+    text-align: left;
     font-weight: 500;
+    font-size: larger;
     font-family: 'Pacifico', cursive;
-    color: black;
+    color: white;
+    margin: 0;
 }
 .welcome-logo:hover {
     color: white;
@@ -16,12 +18,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
- 
+    color: white;
+
 
     button {
         margin: 30px;
-        font-family: 'Baloo Bhai', cursive;
-        font-style: italic;
+        font-family: 'Source Code Pro', monospace;
+        color: white;
         font-size: 20px;
     }
     button:hover {
