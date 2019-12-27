@@ -130,3 +130,12 @@
 	-webkit-transform: scale3d(0.81, 0.81, 1) translate3d(0, 4em, 0);
 	transform: scale3d(0.81, 0.81, 1) translate3d(0, 4em, 0);
 }
+
+.button-wrapper {
+  .submit-button, .clear-button, .save-button {
+    margin: 10px;
+    background-color: transparent;
+    color: white;
+    font-family: 'Source Code Pro', monospace;
+  }
+}
