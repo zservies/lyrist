@@ -1,14 +1,53 @@
 <app-navbar></app-navbar>
 
-<div class = "lyric-wrapper">
-    <input [(ngModel)] = "title" class = "lyric-title" placeholder="Title">
-    <input [(ngModel)] = "author" class = "lyric-author lyric-title" placeholder="Author">
-    <textarea [(ngModel)] = "body" placeholder="Pour your heart out here." class = "lyric-box"></textarea>
-
-    <div class = "button-wrapper">
-        <button class = "submit-button" mat-raised-button (click)="submitPost()">CREATE</button>
-        <button class = "save-button" mat-raised-button>SAVE</button>
-        <button class = "clear-button" mat-raised-button (click)="clearInputs()">CLEAR</button>
+<div class = "wrapper">
+    <div class = "inner-wrapper">
+        <div
+        class="content bgcolor-4">
+           <span class="input input--madoka">
+               <input [(ngModel)] = "title" class="input__field input__field--madoka"
+                type="text" id="input-31" placeholder="title">
+               <label class="input__label input__label--madoka" for="input-31">
+                   <svg class="graphic graphic--madoka" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
+                       <path d="m0,0l404,0l0,77l-404,0l0,-77z"></path>
+                   </svg>
+                   <span class="input__label-content input__label-content--madoka"></span>
+               </label>
+           </span>
+           <span class="input input--madoka">
+               <input [(ngModel)] = "author" class="input__field input__field--madoka"
+                type="text" id="input-32" placeholder="author">
+               <label class="input__label input__label--madoka" for="input-32">
+                   <svg class="graphic graphic--madoka" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
+                       <path d="m0,0l404,0l0,77l-404,0l0,-77z"></path>
+                   </svg>
+                   <span class="input__label-content input__label-content--madoka"></span>
+               </label>
+           </span>
+           <span class="input input--madoka">
+               <textarea [(ngModel)] = "body" cols="30" rows="25" class="input__field input__field--madoka"
+                id="input-33" placeholder="lyrics">
+               </textarea>
+               <label class="input__label input__label--madoka" for="input-33">
+                   <svg class="graphic graphic--madoka" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
+                       <path d="m0,0l404,0l0,77l-404,0l0,-77z"></path>
+                   </svg>
+                   <span class="input__label-content input__label-content--madoka"></span>
+               </label>
+           </span>
+       </div>
     </div>
+  <div class = "button-wrapper">
+    <button class = "submit-button" mat-raised-button (click)="submitPost()">CREATE</button>
+    <button class = "save-button" mat-raised-button>SAVE</button>
+    <button class = "clear-button" mat-raised-button (click)="clearInputs()">CLEAR</button>
+  </div>
 
 </div>
+
+
+
+    <!-- <input [(ngModel)] = "title" class = "lyric-title" placeholder="Title">
+    <input [(ngModel)] = "author" class = "lyric-author lyric-title" placeholder="Author">
+    <textarea [(ngModel)] = "body" placeholder="Pour your heart out here." class = "lyric-box"></textarea> -->
+
