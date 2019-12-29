@@ -17,6 +17,8 @@ import { BrowseLyricsComponent } from './browse-lyrics/browse-lyrics.component';
 import { AboutComponent } from './about/about.component';
 import { CategoriesLyricsComponent } from './categories-lyrics/categories-lyrics.component';
 import { HttpClientModule } from '@angular/common/http';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatButtonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
