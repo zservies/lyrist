@@ -1,3 +1,25 @@
 <app-navbar></app-navbar>
 
-<h1>{{ lyricPosts | json }}</h1>
+<!-- <h1>{{ lyricPosts | json }}</h1> -->
+
+<div class = "accordion-wrapper">
+  <span class = "accordion-title">recent lyrics</span>
+  <mat-accordion>
+
+    <mat-expansion-panel *ngFor="let row of lyricPosts; let i = index">
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{lyricPosts[i].title}}</mat-panel-title>
+        <mat-panel-description>{{lyricPosts[i].author}}</mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class = "content">
+        {{lyricPosts[i].body}}
+      </div>
+
+    </mat-expansion-panel>
+
+  </mat-accordion>
+</div>
+
+
+
