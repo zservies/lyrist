@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,8 @@ export class LyricsService {
 
   constructor(private http: HttpClient) { }
 
-  getLyrics() {
-    return this.lyricPosts;
+  getLyrics(): Observable<any> {
+    return of(this.lyricPosts);
   }
 
   setLyrics(createLyric) {
