@@ -1,5 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { LyricsService } from '../services/lyrics.service';
+import { Subscription } from 'rxjs';
+import { LyricPost } from '../lyric-post';
 
 @Component({
   selector: 'app-browse-lyrics',
@@ -11,18 +13,20 @@ import { LyricsService } from '../services/lyrics.service';
 export class BrowseLyricsComponent implements OnInit {
 
   lyricPosts = [];
+  private lyricsSub: Subscription;
 
   constructor(public lyricsService: LyricsService) { }
 
   ngOnInit() {
-    this.loadLyrics();
+    this.lyricsService.getLyrics();
+    this.lyricsSub = this.lyricsService.getLyricsUpdateListener()
+      .subscribe((lyrics: LyricPost[]) => {
+        this.lyricPosts = lyrics;
+      });
   }
 
-  loadLyrics() {
-    this.lyricsService.getLyrics()
-      .subscribe(data => {
-        this.lyricPosts = [...data];
-      });
+  ngOnDestroy() {
+    this.lyricsSub.unsubscribe();
   }
 
 
