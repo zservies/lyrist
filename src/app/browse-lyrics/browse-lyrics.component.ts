@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable, OnDestroy } from '@angular/core';
 import { LyricsService } from '../services/lyrics.service';
 import { Subscription } from 'rxjs';
 import { LyricPost } from '../lyric-post';
@@ -10,16 +10,16 @@ import { LyricPost } from '../lyric-post';
 })
 
 @Injectable({providedIn: 'root'})
-export class BrowseLyricsComponent implements OnInit {
+export class BrowseLyricsComponent implements OnInit, OnDestroy {
 
-  lyricPosts = [];
+  lyricPosts: LyricPost[] = [];
   private lyricsSub: Subscription;
 
   constructor(public lyricsService: LyricsService) { }
 
   ngOnInit() {
-    this.lyricsService.getLyrics();
-    this.lyricsSub = this.lyricsService.getLyricsUpdateListener()
+    this.lyricsService.getPosts();
+    this.lyricsSub = this.lyricsService.getPostUpdateListener()
       .subscribe((lyrics: LyricPost[]) => {
         this.lyricPosts = lyrics;
       });
