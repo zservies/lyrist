@@ -19,10 +19,14 @@ export class BrowseLyricsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.lyricsService.getPosts();
+    this.getLyrics();
+  }
+
+  getLyrics() {
     this.lyricsSub = this.lyricsService.getPostUpdateListener()
-      .subscribe((lyrics: LyricPost[]) => {
-        this.lyricPosts = lyrics;
-      });
+    .subscribe((lyrics: LyricPost[]) => {
+      this.lyricPosts = lyrics;
+    });
   }
 
   ngOnDestroy() {
