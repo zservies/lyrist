@@ -9,18 +9,18 @@ import { LyricsService } from '../services/lyrics.service';
 })
 export class CreateLyricsComponent implements OnInit {
 
-  lyricPost: LyricPost;
   title: string;
   author: string;
   body: string;
 
   submitPost() {
-    this.lyricPost = {
-      title: this.title,
-      author: this.author,
-      body: this.body
-    };
-    this.lyricService.setLyrics(this.lyricPost);
+    // this.lyricPost = {
+    //   title: this.title,
+    //   author: this.author,
+    //   body: this.body
+    // };
+    this.lyricService.addPost(this.title, this.author, this.body);
+    this.clearInputs();
   }
   clearInputs() {
     this.title = '';

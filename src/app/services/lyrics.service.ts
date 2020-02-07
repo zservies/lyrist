@@ -8,32 +8,41 @@ import { LyricPost } from '../lyric-post';
 })
 export class LyricsService {
 
-  lyricPosts: LyricPost[] = [];
+  private lyricPosts: LyricPost[] = [];
   exampleUrl = '/assets/data/example.json';
-  lyricsUpdated = new Subject<LyricPost[]>();
+  private lyricsUpdated = new Subject<LyricPost[]>();
 
   constructor(private http: HttpClient) { }
 
-  getLyrics() {
-    // return this.http.get('http://localhost:3000/api/posts'); // TODO: Make api url dynamic.
-    // return of(this.lyricPosts);
-    return this.http
-      .get<{message: string; posts: LyricPost[]}>('http://localhost:3000/api/posts')
-        .subscribe((postData) => {
+  getPosts() {
+    this.http
+      .get<{ message: string; posts: LyricPost[] }>(
+        'http://localhost:3000/api/posts'
+      )
+      .subscribe(postData => {
+        // Checks if lyricPosts is empty - meaning no new posts have been added. If no new posts -> load what is stored.
+        // If new posts -> add what is stored to the newest posts array.
+        if (this.lyricPosts.length === 0) {
           this.lyricPosts = postData.posts;
-          this.lyricsUpdated.next([...this.lyricPosts]);
-        });
+        } else {
+          this.lyricPosts.concat(postData.posts); // Adds fetched data from backend to lyircPosts array.
+        }
+        this.lyricsUpdated.next([...this.lyricPosts]);
+      });
   }
 
-  setLyrics(createLyric) {
-    this.lyricPosts.push(createLyric);
-  }
-
-  getExample(): Observable<any> {
-    return this.http.get(this.exampleUrl);
-  }
-
-  getLyricsUpdateListener() {
+  getPostUpdateListener() {
     return this.lyricsUpdated.asObservable();
+  }
+
+  addPost(title: string, author: string, body: string) {
+    const post: LyricPost = { id: null, title, author, body };
+    this.http
+      .post<{ message: string }>('http://localhost:3000/api/posts', post)
+      .subscribe(responseData => {
+        console.log(responseData.message);
+        this.lyricPosts.push(post);
+        this.lyricsUpdated.next([...this.lyricPosts]);
+      });
   }
 }
