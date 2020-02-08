@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LyricPost } from '../lyric-post';
+import { LyricPost } from '../interfaces/lyric-post.model';
 import { LyricsService } from '../services/lyrics.service';
 
 @Component({
