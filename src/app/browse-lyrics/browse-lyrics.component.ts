@@ -18,8 +18,8 @@ export class BrowseLyricsComponent implements OnInit, OnDestroy {
   constructor(public lyricsService: LyricsService) { }
 
   ngOnInit() {
-    this.lyricsService.getPosts();
     this.getLyrics();
+    this.lyricsService.getPosts();
   }
 
   getLyrics() {
