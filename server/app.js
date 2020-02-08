@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
+const LyricPost = require('./models/lyric-post'); // import lyric-post model.
 
 app.use(bodyParser.json());
 
@@ -15,7 +16,12 @@ app.use((req, res, next) => {
 });
 
 app.post('/api/posts', (req, res, next) => {
-  const post = req.body;
+  const post = new LyricPost({
+    title: req.body.title,
+    author: req.body.author,
+    body: req.body.body
+  });
+  
   console.log(post);
   res.status(201).json({
     message: 'Post added successfully.'
