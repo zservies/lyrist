@@ -1,7 +1,7 @@
 import { Component, OnInit, Injectable, OnDestroy } from '@angular/core';
 import { LyricsService } from '../services/lyrics.service';
 import { Subscription } from 'rxjs';
-import { LyricPost } from '../lyric-post';
+import { LyricPost } from '../interfaces/lyric-post.model';
 
 @Component({
   selector: 'app-browse-lyrics',
