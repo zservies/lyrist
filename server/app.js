@@ -1,7 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const app = express();
+
+// Database connection
+mongoose.connect('mongodb+srv://Zach:syDXOEGPq3LRVetB@cluster0-8oekr.mongodb.net/lyrics?retryWrites=true&w=majority')
+  .then(() => {
+    console.log('Connected database!');
+  })
+  .catch(()=>{
+    console.log('Something went wrong.');
+  }); 
+
+
 const LyricPost = require('./models/lyric-post'); // import lyric-post model.
 
 app.use(bodyParser.json());
@@ -21,7 +33,7 @@ app.post('/api/posts', (req, res, next) => {
     author: req.body.author,
     body: req.body.body
   });
-  
+  post.save(); 
   console.log(post);
   res.status(201).json({
     message: 'Post added successfully.'
@@ -29,28 +41,15 @@ app.post('/api/posts', (req, res, next) => {
 });
 
 app.get('/api/posts',(req, res, next) => {
-  const posts = [
-    {
-      "id": "1",
-      "title": "Lyric 1",
-      "body": "Some great lyrics from server."
-    },
-    {
-      "id": "2",
-      "title": "Lyric 2",
-      "body": "Some great lyrics again from server."
-    },
-    {
-      "id": "3",
-      "title": "Another Lyric",
-      "author": "Zach",
-      "body": "Here are the lyrics you should read."
-    }
-  ];
-  res.status(200).json({
-    message: "Posts fetched successfully.",
-    posts: posts
-  });
+  // Returns all entries from MongoDB.
+  LyricPost.find()
+    .then(documents => {
+      // Response must be in callback.
+      res.status(200).json({
+        message: "Posts fetched successfully.",
+        posts: documents
+      });
+    });
 });
 
 module.exports = app;
