@@ -9,9 +9,9 @@ mongoose.connect('mongodb+srv://Zach:syDXOEGPq3LRVetB@cluster0-8oekr.mongodb.net
   .then(() => {
     console.log('Connected database!');
   })
-  .catch(()=>{
-    console.log('Something went wrong.');
-  }); 
+  .catch((err)=>{
+    console.log('SOMETHING WENT WRONG: ', err);
+  });
 
 
 const LyricPost = require('./models/lyric-post'); // import lyric-post model.
@@ -39,8 +39,8 @@ app.post('/api/posts', (req, res, next) => {
       message: 'Post added successfully.',
       postId: createdPost._id // Send back MongoDB generated ID whenever a post is successfully created.
     });
-  }); 
-  
+  });
+
 });
 
 app.get('/api/posts',(req, res, next) => {
