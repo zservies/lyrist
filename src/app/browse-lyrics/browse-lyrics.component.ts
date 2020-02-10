@@ -18,8 +18,8 @@ export class BrowseLyricsComponent implements OnInit, OnDestroy {
   constructor(public lyricsService: LyricsService) { }
 
   ngOnInit() {
-    this.getLyrics();
     this.lyricsService.getPosts();
+    this.getLyrics();
   }
 
   getLyrics() {
@@ -29,9 +29,11 @@ export class BrowseLyricsComponent implements OnInit, OnDestroy {
     });
   }
 
+  onDelete(postId: string) {
+    this.lyricsService.deletePost(postId);
+  }
+  
   ngOnDestroy() {
     this.lyricsSub.unsubscribe();
   }
-
-
 }

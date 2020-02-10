@@ -29,15 +29,18 @@ app.use((req, res, next) => {
 
 app.post('/api/posts', (req, res, next) => {
   const post = new LyricPost({
+    id: req.body._id,
     title: req.body.title,
     author: req.body.author,
     body: req.body.body
   });
-  post.save(); 
-  console.log(post);
-  res.status(201).json({
-    message: 'Post added successfully.'
-  });
+  post.save().then(createdPost => {
+    res.status(201).json({
+      message: 'Post added successfully.',
+      postId: createdPost._id // Send back MongoDB generated ID whenever a post is successfully created.
+    });
+  }); 
+  
 });
 
 app.get('/api/posts',(req, res, next) => {
@@ -50,6 +53,15 @@ app.get('/api/posts',(req, res, next) => {
         posts: documents
       });
     });
+});
+
+// Deletes a post with a given ID.
+app.delete('/api/posts/:id',(req, res, next) => {
+  LyricPost.deleteOne({_id: req.params.id}).then(result => {
+    console.log(result);
+    res.status(200).json({message: 'Post deleted.'});
+
+  })
 });
 
 module.exports = app;
