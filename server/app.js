@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 // Database connection
-mongoose.connect('mongodb+srv://Zach:syDXOEGPq3LRVetB@cluster0-8oekr.mongodb.net/test?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://Zach:syDXOEGPq3LRVetB@cluster0-8oekr.mongodb.net/lyrics?retryWrites=true&w=majority')
   .then(() => {
     console.log('Connected database!');
   })
