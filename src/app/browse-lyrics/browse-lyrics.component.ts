@@ -32,7 +32,7 @@ export class BrowseLyricsComponent implements OnInit, OnDestroy {
   onDelete(postId: string) {
     this.lyricsService.deletePost(postId);
   }
-  
+
   ngOnDestroy() {
     this.lyricsSub.unsubscribe();
   }
