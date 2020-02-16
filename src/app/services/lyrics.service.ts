@@ -62,7 +62,8 @@ export class LyricsService {
   deletePost(postId: string) {
     this.http.delete('http://localhost:3000/api/posts/' + postId)
       .subscribe(() => {
-        const updatedLyrics = this.lyricPosts.filter(lyric => lyric.id !== postId); // Returns subset of lyricPosts array. Removes deleted post from array.
+        // Returns subset of lyricPosts array. Removes deleted post from array.
+        const updatedLyrics = this.lyricPosts.filter(lyric => lyric.id !== postId);
         this.lyricPosts = updatedLyrics;
         this.lyricsUpdated.next([...this.lyricPosts]);
       });
