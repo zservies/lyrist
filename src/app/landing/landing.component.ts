@@ -7,10 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-  // TODO: This is just a placeholder for Spotify's login - a seperate component will be defined later.
-  spotifyLogin() {
-    console.log('works!');
-  }
 
   constructor() { }
 
