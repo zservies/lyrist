@@ -14,7 +14,9 @@ export class LyricsService {
   private lyricsUpdated = new Subject<LyricPost[]>();
 
   constructor(private http: HttpClient) { }
-
+  getPost(id: string) {
+    return{...this.lyricPosts.find(p => p.id === id)};
+  }
   getPosts() {
     this.http
       .get<{ message: string; posts: any }>(
@@ -57,6 +59,12 @@ export class LyricsService {
         this.lyricPosts.push(post);
         this.lyricsUpdated.next([...this.lyricPosts]);
       });
+  }
+
+  updatePost(id: string, title: string, author: string, body: string) {
+    const post: LyricPost = {id, title, author, body};
+    this.http.put('http://localhost:3000/api/posts/' + id, post)
+      .subscribe(response => console.log(response));
   }
 
   deletePost(postId: string) {

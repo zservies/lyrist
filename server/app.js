@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
   next();
 });
 
@@ -64,4 +64,17 @@ app.delete('/api/posts/:id',(req, res, next) => {
   })
 });
 
+// Updates a post with a given ID.
+app.put('/api/posts/:id', (req, res, next) => {
+  const post = new LyricPost({
+    _id: req.body.id,
+    title: req.body.title,
+    body: req.body.body,
+    author: req.body.author
+  });
+  LyricPost.updateOne({_id: req.params.id}, post).then(result => {
+    console.log(result);
+    res.status(200).json({message: 'Successful update'});
+  });
+})
 module.exports = app;

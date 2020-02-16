@@ -6,7 +6,7 @@
         class="content bgcolor-4">
            <span class="input input--madoka">
                <input [(ngModel)] = "title" class="input__field input__field--madoka"
-                type="text" id="input-31" placeholder="title">
+                type="text" id="input-31" placeholder="{{(post.title) ? post.title : 'title'}}">
                <label class="input__label input__label--madoka" for="input-31">
                    <svg class="graphic graphic--madoka" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
                        <path d="m0,0l404,0l0,77l-404,0l0,-77z"></path>
@@ -25,7 +25,7 @@
                </label>
            </span>
            <span class="input input--madoka">
-               <textarea [(ngModel)] = "body" cols="30" rows="25" class="input__field input__field--madoka"
+               <textarea [(ngModel)] = "post.body" cols="30" rows="25" class="input__field input__field--madoka"
                 id="input-33" placeholder="lyrics">
                </textarea>
                <label class="input__label input__label--madoka" for="input-33">

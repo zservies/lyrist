@@ -11,6 +11,7 @@ import { CategoriesLyricsComponent } from './categories-lyrics/categories-lyrics
 const routes: Routes = [
   {path: '', component: LandingComponent},
   {path: 'create', component: CreateLyricsComponent},
+  {path: 'edit/:postId', component: CreateLyricsComponent},
   {path: 'browse', component: BrowseLyricsComponent},
   {path: 'about', component: AboutComponent},
   {path: 'categories', component: CategoriesLyricsComponent},

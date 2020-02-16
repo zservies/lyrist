@@ -10,7 +10,7 @@
       <mat-expansion-panel-header>
         <mat-panel-title>{{lyricPosts[i].title}}</mat-panel-title>
         <mat-panel-description>{{lyricPosts[i].author}}</mat-panel-description>
-        <button mat-button>EDIT</button>
+        <a mat-button [routerLink] = "['/edit', lyricPosts[i].id]">EDIT</a>
         <button mat-button (click)="onDelete(lyricPosts[i].id)">DELETE</button>
       </mat-expansion-panel-header>
 
