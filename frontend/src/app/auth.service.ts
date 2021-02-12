@@ -9,10 +9,20 @@ import { Observable, of, Subject } from 'rxjs';
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  getUsers() {}
+  getUsersList() {
+    this.http.get('http://localhost:3003/').subscribe(
+      (response) => {
+        console.log('USERS: ', response);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
 
   createUser(user: User) {
     console.log('greetings from auth: ', user);
+    this.getUsersList();
     this.http.post('http://localhost:3003/', user).subscribe(
       (response) => {
         console.log('the response: ', response);
