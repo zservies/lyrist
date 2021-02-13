@@ -23,7 +23,7 @@ usersRouter.post("/", async (req, res) => {
 });
 
 usersRouter.get("/", async (req, res) => {
-  const users = await User.find({});
+  const users = await User.find({}).populate('lyrics'); // Populate query with actual lyrics rather than just lyric ids.
   res.json(users);
 });
 

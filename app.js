@@ -4,6 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const config = require("./utils/config.js");
 const usersRouter = require("./controllers/users");
+const lyricsRouter = require("./controllers/lyrics");
 
 mongoose.connect(config.MONGO_URI, {
   useNewUrlParser: true,
@@ -13,5 +14,6 @@ mongoose.connect(config.MONGO_URI, {
 app.use(cors());
 app.use(express.json());
 app.use(usersRouter);
+app.use(lyricsRouter);
 
 module.exports = app;
