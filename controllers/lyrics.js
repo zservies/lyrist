@@ -1,10 +1,30 @@
 const lyricsRouter = require("express").Router();
 const Lyric = require("../models/lyric");
-const bcrypt = require("bcrypt");
 const User = require("../models/user");
+const jwt = require("jsonwebtoken");
+
+// Helper function to isolate token from authorization header.
+// Move to helper file later.
+const getTokenFrom = (request) => {
+  const authz = request.get("authorization");
+  if (authz && authz.toLowerCase().startsWith("bearer ")) {
+    return authz.substring(7);
+  }
+  return null;
+};
 
 lyricsRouter.post("/api/lyrics", async (req, res) => {
-  const user = await User.findById(req.body.userId);
+  // Get token
+  const token = getTokenFrom(req);
+  // Verify token against stored SECRET.
+  const decodedToken = jwt.verify(token, process.env.SECRET);
+  // If no token or no decoded token send error.
+  if (!token || !decodedToken.id) {
+    return res.status(401).json({ error: "TOKEN MISSING OR INVALID" });
+  }
+
+  // Find user by decoded token id.
+  const user = await User.findById(decodedToken.id);
 
   const lyric = new Lyric({
     title: req.body.title,
